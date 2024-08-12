@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\PatientRegistration\App\Models\PatientModel;
+use Modules\PatientRegistration\App\Models\Patient;
 use Modules\PatientRegistration\App\Http\Requests\CreatePatientRequest;
 
 class PatientRegistrationController extends Controller
@@ -16,7 +16,8 @@ class PatientRegistrationController extends Controller
      */
     public function index()
     {
-        return view('patientregistration::index');
+        $patients = Patient::paginate(10);
+        return view('patientregistration::index', compact('patients'));
     }
 
     /**
@@ -24,7 +25,9 @@ class PatientRegistrationController extends Controller
      */
     public function create()
     {
-        return view('patientregistration::create');
+        $userId = auth()->user()->id; // Get the logged-in user's ID using auth
+        // dd($userId);
+        return view('patientregistration::create', compact('userId'));
     }
 
     /**
@@ -35,7 +38,9 @@ class PatientRegistrationController extends Controller
     
         $validatedData = $request->validated();
         // dd($request->validated());
-        PatientModel::create($validatedData);
+        $userId = $request->input('user_id');
+        // dd($validatedData);
+        Patient::create($validatedData);
 
         
         return redirect()->route('patientregistration.index')

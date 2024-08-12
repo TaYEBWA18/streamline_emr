@@ -14,6 +14,6 @@ use Modules\PatientRegistration\App\Http\Controllers\PatientRegistrationControll
 |
 */
 
-Route::group([], function () {
+Route::group(['middleware'=>['auth']], function () { //middleware to protect the routes
     Route::resource('patientregistration', PatientRegistrationController::class)->names('patientregistration');
 });

@@ -16,7 +16,7 @@ use Modules\User\App\Http\Controllers\UserController;
 
 Route::group([], function () {
     Route::resource('user', UserController::class);
-    Route::get('/', [UserController::class, 'loginPage'])->name('loginPage');// Route::get('user/login{id}', [UserController::class, 'login']);
+    Route::get('/login', [UserController::class, 'loginPage'])->name('loginPage');// Route::get('user/login{id}', [UserController::class, 'login']);
     Route::post('/login', [UserController::class, 'login'])->name('login');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');

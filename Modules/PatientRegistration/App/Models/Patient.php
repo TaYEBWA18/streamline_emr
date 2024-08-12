@@ -4,9 +4,10 @@ namespace Modules\PatientRegistration\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\PatientRegistration\Database\factories\PatientModelFactory;
+use Modules\PatientRegistration\Database\factories\PatientFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PatientModel extends Model
+class Patient extends Model
 {
     use HasFactory;
 
@@ -14,7 +15,12 @@ class PatientModel extends Model
      * The attributes that are mass assignable.
      * 
      */
-    protected $table = 'patient';
+    use SoftDeletes;
+
+    // protected $table = 'patients';
+
+    protected $dates = ['deleted_at'];
+   
     
     protected $fillable = [
         'First_name',
@@ -28,9 +34,13 @@ class PatientModel extends Model
         'user_id'
     ];
 
-    public function patientRecord()
+    //function to relate the created patient with the user.
+    public function patient()
     {
         return $this->belongsTo(Modules\User\App\Models\UserModel::class);
+    }
+    public function  appointments(){
+        // return $this->hasMany(Modules\Appointment\App\Models\Appointment::class);
     }
 
 }

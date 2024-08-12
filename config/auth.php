@@ -62,7 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Modules\User\App\Models\UserModel::class,
+            'model' => Modules\User\App\Models\UserModel::class,//Register the model to be used for authentication here
         ],
 
         // 'users' => [
