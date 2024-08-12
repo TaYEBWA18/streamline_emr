@@ -1,0 +1,12 @@
+//for date of birth
+    // $dob= sprintf('%04d-%02d-%02d', $request->year, $request->month, $request->day);
+    // $dateOfBirth= $validatedDate = Carbon::createFromFormat('Y-m-d', $dob);
+    // $request->dateOfBirth= $dateOfBirth;
+    // // Assuming $user is already correctly fetched based on the $id
+
+    // $users->name = $request->name;
+    // $users->email = $request->email;
+    // $users->role = $request->role;
+    // $users->phone = $request->phone;
+    // $users->date_of_birth = $dateOfBirth;
+    // $users->gender = $request->gender;

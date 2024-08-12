@@ -1,0 +1,11 @@
+{
+    "name": "PatientRegistration",
+    "alias": "patientregistration",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\PatientRegistration\\App\\Providers\\PatientRegistrationServiceProvider"
+    ],
+    "files": []
+}

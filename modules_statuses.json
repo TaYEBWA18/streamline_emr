@@ -1,0 +1,6 @@
+{
+    "User": true,
+    "PatientRegistration": true,
+    "Request": true,
+    "UpdateUserRequest": true
+}

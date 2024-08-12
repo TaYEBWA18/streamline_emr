@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/patientregistration",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\PatientRegistration\\": "",
+            "Modules\\PatientRegistration\\App\\": "app/",
+            "Modules\\PatientRegistration\\Database\\Factories\\": "database/factories/",
+            "Modules\\PatientRegistration\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\PatientRegistration\\Tests\\": "tests/"
+        }
+    }
+}
