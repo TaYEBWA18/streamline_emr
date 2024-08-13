@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\User\Database\factories\UserModelFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class UserModel extends Authenticatable
 {
    protected $table='user';
@@ -29,8 +30,8 @@ class UserModel extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
-    public function UserModel()
+    public function patient()
     {
-        return $this->hasMany(Modules\PatientRegistration\App\Models\PatientModel::class);
+        return $this->hasMany(Modules\PatientRegistration\App\Models\Patient::class);
     }
 }

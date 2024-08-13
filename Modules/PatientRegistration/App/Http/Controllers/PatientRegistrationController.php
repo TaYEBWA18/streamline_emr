@@ -17,6 +17,9 @@ class PatientRegistrationController extends Controller
     public function index()
     {
         $patients = Patient::paginate(10);
+        // $patients = Patient::with('user')->get();
+
+        // return($patients);
         return view('patientregistration::index', compact('patients'));
     }
 
@@ -76,6 +79,30 @@ class PatientRegistrationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patients=Patient::findOrFail($id);
+
+        $patients->delete();
+         
+        return redirect()->route('patientregistration.index')
+                        ->with('success','Patient deleted successfully');
+    }
+    //Show innactive patients view
+    //to implement soft deletes
+    public function inactivePatients(){
+       $patients=Patient::onlyTrashed()->paginate(10);//view only trashed patients
+       return view('patientregistration::inactivePatients', compact('patients'));
+    }
+
+    //Restoration Function
+    public function restore($id){
+
+        // $patient = Patient::withTrashed()->findOrFail($id);
+
+        $patient=Patient::withTrashed()->where('id',$id)->first();//find the trashed patient id and restore it on click
+
+        $patient->restore();
+
+        return redirect()->route('patients.inactive')->with('success', 'Patient Restored successfuly');
+
     }
 }

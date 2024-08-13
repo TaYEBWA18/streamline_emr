@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 @section('content')
     <div class="row">
@@ -7,9 +7,7 @@
                 <h2>PATIENTS' TABLE</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{route('patients.create')}}"> ADD PATIENT</a>
-                <a class="btn btn-success" href="{{route('patients.inactive')}}">Innactive Patients</a>
-                <a class="btn btn-success" href="">Back</a>
+                <a class="btn btn-success" href="{{route('patients.index')}}"> Back</a>
             </div>
             
         </div>
@@ -28,10 +26,10 @@
             <th>Name</th>
             <th>Phone number</th>
             <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>Next Of Kin</th>
+           
+            
             <th>Created By</th>
-            <th>Date Created</th>
+            <th>Date Deleted</th>
            
             <th width="280px">Action</th>
         </tr>
@@ -44,23 +42,18 @@
             <td>{{ $patient->First_name}}  {{$patient->last_name}}</td> <!--concacting name -->
             <td>{{ $patient->phone_number}}</td>
             <td>{{ ($patient->gender =='M')? 'Male':'Female'}}</td>
-            <td>{{ $patient->date_of_birth}}</td>
-            <td>{{ $patient->nok}}</td>
             <td>{{ $patient->user->name}}</td>
-            <td>{{ $patient->created_at}}</td>
+            <td>{{ $patient->deleted_at}}</td>
              <!-- <td>{{ $patient_data->name}}</td> -->
            
             <td>
-                <form action="{{ route('patients.destroy',$patient->id) }}" method="POST">
+                <form action="{{ route('patient.restore', $patient->id)}}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('patients.show',$patient->id) }}">Select</a>
-    
-                    <a class="btn btn-primary" href="{{ route('patients.edit',$patient->id) }}">Edit</a>
+                    <button class="btn btn-info" type="submit"><i class="fas fa-undo"></i> Restore</button>
+                    <!-- the restore button -->
    
                     @csrf
-                    @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger">Delete</button>
+
                 </form>
             </td>
         </tr>
@@ -68,5 +61,3 @@
     </table>
   
     {!! $patients->links() !!}
-      
-@endsection

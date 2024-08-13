@@ -11,13 +11,13 @@
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href=""> Back</a>
-            <a class="btn btn-primary" href=""> View Patients</a>
+            <a class="btn btn-primary" href="{{route('patients.index')}}"> View Patients</a>
         </div>
     </div>            
 </div>
   
    
-<form action="{{route('patientregistration.store')}}" method="POST"> 
+<form action="{{route('patients.store')}}" method="POST"> 
 <!-- csrf prevents input injection from the browswe-->
     @csrf
   

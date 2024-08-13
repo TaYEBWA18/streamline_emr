@@ -1,5 +1,5 @@
 
-@extends('user::layouts.DashBoardLayout')
+@extends('layouts.app')
 
 @section('title', 'Dashboard | Stre@mline Hospital')
 

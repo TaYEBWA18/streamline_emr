@@ -5,6 +5,7 @@ namespace Modules\PatientRegistration\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\PatientRegistration\Database\factories\PatientFactory;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Patient extends Model
@@ -35,9 +36,9 @@ class Patient extends Model
     ];
 
     //function to relate the created patient with the user.
-    public function patient()
+    public function user()
     {
-        return $this->belongsTo(Modules\User\App\Models\UserModel::class);
+        return $this->belongsTo(\Modules\User\App\Models\UserModel::class);
     }
     public function  appointments(){
         // return $this->hasMany(Modules\Appointment\App\Models\Appointment::class);
