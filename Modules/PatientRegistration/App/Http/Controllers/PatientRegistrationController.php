@@ -39,10 +39,10 @@ class PatientRegistrationController extends Controller
     public function store(CreatePatientRequest $request): RedirectResponse
     {
     
-        $validatedData = $request->validated();
-        // dd($request->validated());
-        $userId = $request->input('user_id');
-        // dd($validatedData);
+        $validatedData = $request->validated();//validate the data being input
+       
+        $userId = $request->input('user_id');//(Capture the user Id)
+        
         Patient::create($validatedData);
 
         
@@ -55,7 +55,9 @@ class PatientRegistrationController extends Controller
      */
     public function show($id)
     {
-        return view('patientregistration::show');
+        $patients=Patient::findOrFail($id);
+
+        return view('patientregistration::show', compact('patients'));
     }
 
     /**
@@ -63,15 +65,27 @@ class PatientRegistrationController extends Controller
      */
     public function edit($id)
     {
-        return view('patientregistration::edit');
+        $patient=Patient::findOrFail($id);
+
+        return view('patientregistration::edit', compact('patient'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id): RedirectResponse
+    public function update(CreatePatientRequest $request, $id): RedirectResponse
     {
-        //
+        $patient=Patient::findOrFail($id);
+
+        $validatedData = $request->validated();
+       
+        $userId = $request->input('user_id');
+        
+        Patient::update($validatedData);
+
+        
+        return redirect()->route('patientregistration.index')
+                        ->with('success','Patient Updated successfully.');
     }
 
     /**

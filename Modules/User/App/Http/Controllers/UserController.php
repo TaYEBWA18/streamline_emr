@@ -91,7 +91,7 @@ class UserController extends Controller
      */
     public function update( UpdateUserRequest $newRequest, $id)
 {
-         $users=UserModel::findOrFail($id);
+        $users=UserModel::findOrFail($id);
 
         $dob= sprintf('%04d-%02d-%02d', $newRequest->year, $newRequest->month, $newRequest->day);
         $dateOfBirth=Carbon::createFromFormat('Y-m-d', $dob);

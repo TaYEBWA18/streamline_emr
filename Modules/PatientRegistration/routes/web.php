@@ -15,7 +15,7 @@ use Modules\PatientRegistration\App\Http\Controllers\PatientRegistrationControll
 */
 
 Route::group(['middleware'=>['auth']], function () { //middleware to protect the 
-    Route::resource('patients', PatientRegistrationController::class)->names('patients');
+    Route::resource('patients', PatientRegistrationController::class);
     Route::get('/inactivePatients', [PatientRegistrationController::class, 'inactivePatients'])->name('patients.inactive');
     Route::post('/patient/{id}/restore', [PatientRegistrationController::class, 'restore'])->name('patient.restore');
 });
