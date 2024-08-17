@@ -4,6 +4,7 @@ namespace Modules\PatientRegistration\App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class PatientRegistrationServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,10 @@ class PatientRegistrationServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/migrations'));
+        //register the views and their source directories.
+        $this->loadViewsFrom(__DIR__.'/../Resources/views','drugs');
+        $this->loadViewsFrom(__DIR__.'/../Resources/views','labtests');
+        $this->loadViewsFrom(__DIR__.'/../Resources/views','diagnoses');
     }
 
     /**

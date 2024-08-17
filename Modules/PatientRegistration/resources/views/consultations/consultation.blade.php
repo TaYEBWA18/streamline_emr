@@ -11,7 +11,7 @@
    
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h2>Patient's Home</h2>
+            <h2>PAtient's Home</h2>
             <div class="form-group">
                 <strong>PATIENT NUMBER:</strong>
                 {{'SLH-P'}}-0{{ $patients->id }}
@@ -52,12 +52,7 @@
                 <strong>Registration Date:</strong>
                 {{ $patients->created_at }}
             </div>
-            <div class="form-group">
-                <button class="content_buttons">Consultation</button>
-                <button class="content_buttons">Investigations</button>
-                <button class="content_buttons">Treatment</button>
-                <button class="content_buttons">Procedures</button>
-            </div>
+            
 
     
         </div>

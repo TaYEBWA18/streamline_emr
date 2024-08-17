@@ -46,7 +46,7 @@ class PatientRegistrationController extends Controller
         Patient::create($validatedData);
 
         
-        return redirect()->route('patientregistration.index')
+        return redirect()->route('patients.index')
                         ->with('success','Patient created successfully.');
     }
 
@@ -84,7 +84,7 @@ class PatientRegistrationController extends Controller
         Patient::update($validatedData);
 
         
-        return redirect()->route('patientregistration.index')
+        return redirect()->route('patients.index')
                         ->with('success','Patient Updated successfully.');
     }
 
@@ -97,7 +97,7 @@ class PatientRegistrationController extends Controller
 
         $patients->delete();
          
-        return redirect()->route('patientregistration.index')
+        return redirect()->route('patients.index')
                         ->with('success','Patient deleted successfully');
     }
     //Show innactive patients view
