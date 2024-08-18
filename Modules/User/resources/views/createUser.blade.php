@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="..resources/css/sign_up.css"> -->
 
     <style>
@@ -290,7 +291,7 @@ select option {
                     {{ $message }}
                   </div> 
                   @enderror
-        <div class="input-icon"><i class="fa fa-key"></i></div>
+        <div class="input-icon"><i class="fa fa-phone"></i></div>
       </div>
       <div class="input-group input-group-icon">
         <input type="password" class="@error('password') invalid-feedback @enderror" placeholder="Password" name="password" id="password" value="{{ old('password') }}"/>
@@ -298,7 +299,7 @@ select option {
                     {{ $message }}
                   </div> 
                   @enderror
-        <div class="input-icon"><i class="fa fa-key"></i></div>
+        <div class="input-icon"><i class="fa fa-eye"></i></div>
       </div>
       <div class="input-group input-group-icon">
       <select  name="role" id="role" class="" placeholder="" >

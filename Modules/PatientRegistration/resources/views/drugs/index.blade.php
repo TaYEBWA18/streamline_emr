@@ -39,9 +39,21 @@
             <td>{{"DR-"}}{{$drug->id}}</td>
             <td>{{ $drug->name}}</td> <!--concacting name -->
             <td>{{ $drug->brand_name}}</td>
-            <td>{{ $drug->form}}</td>
-
-           
+            <td>
+    @switch($drug->form)
+        @case(1)
+            Tablets
+            @break
+        @case(2)
+            Capsules
+            @break
+        @case(3)
+           Syrup
+            @break
+        @case(4)
+           Ampule/Injection
+            @break
+            @endswitch
             <td>
                 <form action="" method="POST">
    

@@ -77,7 +77,7 @@
     <div class="main-container">
     <div class="sidebar">
         <div class="navbar navbar-light bg-light">
-            <a> <img src="{{ asset('https://streamlinehealth.org/wp-content/uploads/2023/08/logo-02.webp') }}" alt="Stre@mline Hospital Logo"><br> </a>
+            <a> <img src="{{ asset('https://streamlinehealth.org/wp-content/uploads/2023/08/logo-02.webp') }}" alt="Stre@mline Hospital Logo"><strong>HOSPITAL</strong><br> </a>
         </div>
        
 
@@ -98,7 +98,7 @@
                 </a>
                 <div class="collapse {{ request()->routeIs('labtests.*') ? 'show' : '' }}" id="labSubmenu">
                     <a class="nav-link sub-link {{ request()->routeIs('labtest.create') ? 'active' : '' }}" href="{{ route('labtest.create') }}"> Create Lab Test</a> 
-                    <a class="nav-link sub-link {{ request()->routeIs('labtest.index') ? 'active' : '' }}" href="{{ route('labtest.create') }}"> View Lab Tests</a>
+                    <a class="nav-link sub-link {{ request()->routeIs('labtest.index') ? 'active' : '' }}" href="{{ route('labtest.index') }}"> View Lab Tests</a>
                    
                 </div>
             <!-- Pharmacy Main Link with Sub-links -->

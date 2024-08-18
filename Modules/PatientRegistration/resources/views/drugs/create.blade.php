@@ -44,7 +44,7 @@
                 <select name="form" id="form" class="form-control @error('form') is-invalid @enderror" placeholder="Capsules" >
                      <option value="">Select Form</option>
                      <option value="1"@selected(old('form')=='1')>Tablets</option>  <!--Only for dropdown lists-->
-                     <option value="2" @if(old('form')=='2') selected @endif>Caosules</option>
+                     <option value="2" @if(old('form')=='2') selected @endif>Capsules</option>
                      <option value="3" @if(old('form')=='3') selected @endif>Syrup</option>
                      <option value="4" @if(old('form')=='4') selected @endif>Injection(Ampule)</option>
                 </select>

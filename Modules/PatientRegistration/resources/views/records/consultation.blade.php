@@ -11,7 +11,7 @@
    
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h2>PAtient's Home</h2>
+            <h2>Patient's Home</h2>
             <div class="form-group">
                 <strong>PATIENT NUMBER:</strong>
                 {{'SLH-P'}}-0{{ $patients->id }}
